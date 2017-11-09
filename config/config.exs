@@ -22,6 +22,11 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Configures Guardian
+config :phx_auth_api, PhxAuthApiWeb.Guardian,
+  issuer: "phx_auth_api",
+  secret_key: "Secret key. You can use `mix guardian.gen.secret` to get one"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
