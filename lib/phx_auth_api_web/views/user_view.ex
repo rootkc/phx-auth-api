@@ -12,7 +12,6 @@ defmodule PhxAuthApiWeb.UserView do
 
   def render("user.json", %{user: user}) do
     %{id: user.id,
-      username: user.username,
-      password: user.password}
+      username: user.username}
   end
 end

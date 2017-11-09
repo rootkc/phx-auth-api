@@ -32,7 +32,6 @@ defmodule PhxAuthApiWeb.UserControllerTest do
       conn = get conn, user_path(conn, :show, id)
       assert json_response(conn, 200)["data"] == %{
         "id" => id,
-        "password" => "some password",
         "username" => "some username"}
     end
 
@@ -52,7 +51,6 @@ defmodule PhxAuthApiWeb.UserControllerTest do
       conn = get conn, user_path(conn, :show, id)
       assert json_response(conn, 200)["data"] == %{
         "id" => id,
-        "password" => "some updated password",
         "username" => "some updated username"}
     end
 
