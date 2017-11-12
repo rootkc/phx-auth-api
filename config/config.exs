@@ -23,9 +23,9 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Configures Guardian
-config :phx_auth_api, PhxAuthApiWeb.Guardian,
+config :phx_auth_api, PhxAuthApi.Auth.Guardian,
   issuer: "phx_auth_api",
-  secret_key: "Secret key. You can use `mix guardian.gen.secret` to get one"
+  secret_key: "L7XjzucoEAx6/LURV8h8hdWaaGIf5HQu4o8J2Jhyh5zJAmbEZoOFdlZIdXqDy1fT"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

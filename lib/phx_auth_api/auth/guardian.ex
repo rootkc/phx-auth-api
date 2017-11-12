@@ -13,7 +13,5 @@ defmodule PhxAuthApi.Auth.Guardian do
     user = claims["sub"]
     |> Auth.get_user!
     {:ok, user}
-    # If something goes wrong here return {:error, reason}
   end
-
 end

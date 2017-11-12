@@ -9,5 +9,6 @@ defmodule PhxAuthApiWeb.Router do
     pipe_through :api
 
     resources "/users", UserController, except: [:new, :edit]
+    post "/login", SessionController, :login
   end
 end
