@@ -6,6 +6,8 @@ defmodule PhxAuthApiWeb.UserController do
 
   action_fallback PhxAuthApiWeb.FallbackController
 
+  plug PhxAuthApi.Auth.AuthPipeline
+
   def index(conn, _params) do
     users = Auth.list_users()
     render(conn, "index.json", users: users)
