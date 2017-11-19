@@ -15,7 +15,6 @@ defmodule PhxAuthApi.AuthTest do
         attrs
         |> Enum.into(@valid_attrs)
         |> Auth.create_user()
-
       user
     end
 

@@ -3,6 +3,7 @@ defmodule PhxAuthApi.Auth.Validate do
   alias PhxAuthApi.Repo
 
   alias PhxAuthApi.Auth.User
+  alias PhxAuthApi.Auth.Guardian
   alias Comeonin.Bcrypt
 
   def authenticate_user(nil, _), do: return_authentication(false, nil)
@@ -17,6 +18,6 @@ defmodule PhxAuthApi.Auth.Validate do
     |> return_authentication(user)
   end
 
-  def return_authentication(true, user), do: {:ok, user}
+  def return_authentication(true, user), do: Guardian.encode_and_sign(user)
   def return_authentication(false, _), do: {:error, :unauthorized}
 end

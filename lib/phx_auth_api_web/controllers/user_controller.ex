@@ -6,7 +6,7 @@ defmodule PhxAuthApiWeb.UserController do
 
   action_fallback PhxAuthApiWeb.FallbackController
 
-  plug PhxAuthApi.Auth.AuthPipeline
+  plug PhxAuthApi.Auth.AuthPipeline when action in [:update, :delete]
 
   def index(conn, _params) do
     users = Auth.list_users()
@@ -29,7 +29,6 @@ defmodule PhxAuthApiWeb.UserController do
 
   def update(conn, %{"id" => id, "user" => user_params}) do
     user = Auth.get_user!(id)
-
     with {:ok, %User{} = user} <- Auth.update_user(user, user_params) do
       render(conn, "show.json", user: user)
     end
