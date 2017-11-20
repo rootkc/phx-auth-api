@@ -41,7 +41,8 @@ defmodule PhxAuthApi.Mixfile do
       {:cowboy, "~> 1.0"},
       {:guardian, "~> 1.0-beta"},
       {:comeonin, "~> 4.0"},
-      {:bcrypt_elixir, "~> 0.12"}
+      {:bcrypt_elixir, "~> 0.12"},
+      {:canary, "~> 1.1.1"}
     ]
   end
 

@@ -27,6 +27,10 @@ config :phx_auth_api, PhxAuthApi.Auth.Guardian,
   issuer: "phx_auth_api",
   secret_key: "L7XjzucoEAx6/LURV8h8hdWaaGIf5HQu4o8J2Jhyh5zJAmbEZoOFdlZIdXqDy1fT"
 
+# Configures Canary
+config :canary, repo: PhxAuthApi.Repo,
+unauthorized_handler: {PhxAuthApi.Auth.AuthErrorHandler, :auth_error}
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
