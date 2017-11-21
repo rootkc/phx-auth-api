@@ -24,7 +24,7 @@ config :phx_auth_api, PhxAuthApiWeb.Endpoint,
 config :logger, level: :info
 
 # Configure your database
-config :hello, PhxAuthApiWeb.Repo,
+config :phx_auth_api, PhxAuthApiWeb.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
