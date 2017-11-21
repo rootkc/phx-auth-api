@@ -12,7 +12,7 @@ config :phx_auth_api,
 # Configures the endpoint
 config :phx_auth_api, PhxAuthApiWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "J8hk2twWAzAdHnjIYVoE2uFLOxqCsRk8nRl3v16/g+ouKDfn6s9ail2+wuwXrVjN",
+  secret_key_base: "FxQO/cevvYdpGYEN/m3gYdjfLq0QZY2/HM7yid35mHEPhGDIC14dKIyl/5HO9/Up",
   render_errors: [view: PhxAuthApiWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: PhxAuthApi.PubSub,
            adapter: Phoenix.PubSub.PG2]
