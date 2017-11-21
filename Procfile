@@ -1,1 +1,1 @@
-web: MIX_ENV=prod mix ecto.create && mix ecto.migrate && mix phx.server
+web: MIX_ENV=prod mix phx.server
