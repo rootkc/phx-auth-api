@@ -1,6 +1,6 @@
 alias PhxAuthApi.Auth.User
 defimpl Canada.Can, for: User do
-  def can?(%User{ id: id }, action, %User{ id: user_id }) do
+  def can?(%User{ id: id }, _, %User{ id: user_id }) do
     id == user_id
   end
 
