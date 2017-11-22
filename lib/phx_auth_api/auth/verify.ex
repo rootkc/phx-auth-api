@@ -1,4 +1,4 @@
-defmodule PhxAuthApi.Auth.Validate do
+defmodule PhxAuthApi.Auth.Verify do
   import Ecto.Query, warn: false
   alias PhxAuthApi.Repo
 

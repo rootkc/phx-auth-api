@@ -3,7 +3,7 @@ defmodule PhxAuthApiWeb.UserControllerTest do
 
   alias PhxAuthApi.Auth
   alias PhxAuthApi.Auth.User
-  alias PhxAuthApi.Auth.Validate
+  alias PhxAuthApi.Auth.Verify
 
   @create_attrs %{password: "some password", username: "some username"}
   @update_attrs %{password: "some updated password", username: "some updated username"}
@@ -15,7 +15,7 @@ defmodule PhxAuthApiWeb.UserControllerTest do
   end
 
   def fixture(:token) do
-    {:ok, jwt, _} = Validate.authenticate_user(@create_attrs.username, @create_attrs.password)
+    {:ok, jwt, _} = Verify.authenticate_user(@create_attrs.username, @create_attrs.password)
     jwt
   end
 
