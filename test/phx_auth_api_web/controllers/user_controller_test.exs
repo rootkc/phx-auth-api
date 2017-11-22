@@ -49,7 +49,7 @@ defmodule PhxAuthApiWeb.UserControllerTest do
 
   describe "update user" do
     setup [:create_user]
-
+    setup [:create_second_user]
     test "renders user when data is valid", %{conn: conn, user: %User{id: id} = user, jwt: jwt} do
       conn = put_req_header(conn, "authorization", jwt)
       conn = put conn, user_path(conn, :update, user), user: @update_attrs
@@ -61,6 +61,12 @@ defmodule PhxAuthApiWeb.UserControllerTest do
         "username" => "some updated username"}
     end
 
+    test "user can't update other users data", %{conn: conn, second_user: second_user, jwt: jwt} do
+      conn = put_req_header(conn, "authorization", jwt)
+      conn = put conn, user_path(conn, :update, second_user), user: @update_attrs
+      assert %{"message" => "unauthenticated"} = json_response(conn, 401)
+    end
+
     test "renders errors when data is invalid", %{conn: conn, user: user, jwt: jwt} do
       conn = put_req_header(conn, "authorization", jwt)
       conn = put conn, user_path(conn, :update, user), user: @invalid_attrs
@@ -70,6 +76,7 @@ defmodule PhxAuthApiWeb.UserControllerTest do
 
   describe "delete user" do
     setup [:create_user]
+    setup [:create_second_user]
 
     test "deletes chosen user", %{conn: conn, user: user, jwt: jwt} do
       conn = put_req_header(conn, "authorization", jwt)
@@ -79,11 +86,22 @@ defmodule PhxAuthApiWeb.UserControllerTest do
         get conn, user_path(conn, :show, user)
       end
     end
+
+    test "user can't delete other user", %{conn: conn, second_user: second_user, jwt: jwt} do
+      conn = put_req_header(conn, "authorization", jwt)
+      conn = put conn, user_path(conn, :delete, second_user), user: @update_attrs
+      assert %{"message" => "unauthenticated"} = json_response(conn, 401)
+    end
   end
 
   defp create_user(_) do
     user = fixture(:user)
     jwt = fixture(:token)
     {:ok, user: user, jwt: jwt}
+  end
+
+  defp create_second_user(_) do
+    user = fixture(:user)
+    {:ok, second_user: user}
   end
 end
