@@ -25,7 +25,7 @@ jobs:
       - run: mix deps.get
       - run: mix ecto.create
       - run: mix test
-      - run: ssh -T git@github.com
+      - run: bash .circleci/setup-heroku.sh
       - deploy:
           name: Deploy Master to Heroku
           command: |
