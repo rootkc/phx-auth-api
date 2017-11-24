@@ -4,7 +4,7 @@ defmodule PhxAuthApi.Auth.AuthErrorHandler do
   def auth_error(conn, {type, _}, _opts), do: auth_error_handler(conn, to_string(type))
   def auth_error(conn), do: auth_error_handler(conn, "unauthenticated")
 
-  defp create_body(type), do: Poison.encode!(%{message: to_string(type)})
+  defp create_body(type), do: Poison.encode!(%{errors: %{detail: to_string(type)}})
 
   defp auth_error_handler(conn, type) do
     body = create_body(type)
