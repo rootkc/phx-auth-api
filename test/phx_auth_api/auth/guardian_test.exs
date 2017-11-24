@@ -6,7 +6,7 @@ defmodule PhxAuthApi.GuardianTest do
 
   @user_attrs %{username: "some username", password: "some password"}
 
-  describe("subject_for_token") do
+  describe "subject_for_token"  do
     setup :create_user
 
     test "subject_for_token/2 with valid data returns user.id", %{user: user} do

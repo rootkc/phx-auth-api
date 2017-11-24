@@ -6,10 +6,16 @@ defmodule PhxAuthApiWeb.UserControllerTest do
   alias PhxAuthApi.Auth.Verify
 
   @create_attrs %{password: "some password", username: "some username"}
+  @other_attrs %{password: "some password 2", username: "some username 2"}
   @update_attrs %{password: "some updated password", username: "some updated username"}
   @invalid_attrs %{password: nil, username: nil}
 
   def fixture(:user) do
+    {:ok, user} = Auth.create_user(@create_attrs)
+    user
+  end
+
+  def fixture(:second_user) do
     {:ok, user} = Auth.create_user(@create_attrs)
     user
   end
@@ -101,7 +107,7 @@ defmodule PhxAuthApiWeb.UserControllerTest do
   end
 
   defp create_second_user(_) do
-    user = fixture(:user)
+    user = fixture(:second_user)
     {:ok, second_user: user}
   end
 end
