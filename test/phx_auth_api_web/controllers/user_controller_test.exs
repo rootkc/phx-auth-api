@@ -16,7 +16,7 @@ defmodule PhxAuthApiWeb.UserControllerTest do
   end
 
   def fixture(:second_user) do
-    {:ok, user} = Auth.create_user(@create_attrs)
+    {:ok, user} = Auth.create_user(@other_attrs)
     user
   end
 
