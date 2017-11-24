@@ -8,8 +8,7 @@ jobs:
       # specify the version here
       - image: circleci/elixir:1.5
         environment:
-          - MIX_ENV: test
-      - image: postgres:9.6
+          - MIX_ENV: dev
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
