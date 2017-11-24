@@ -28,10 +28,10 @@ jobs:
       - run: bash .circleci/setup-heroku.sh
       - add_ssh_keys:
           fingerprints:
-            - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
+            - "8b:48:5e:67:0e:c9:16:47:32:f2:87:0c:1f:c8:60:ad"
       - deploy:
           name: Deploy Master to Heroku
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
+              git push heroku master
             fi
