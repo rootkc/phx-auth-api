@@ -64,7 +64,7 @@ defmodule PhxAuthApiWeb.UserControllerTest do
     test "user can't update other users data", %{conn: conn, second_user: second_user, jwt: jwt} do
       conn = put_req_header(conn, "authorization", jwt)
       conn = put conn, user_path(conn, :update, second_user), user: @update_attrs
-      assert %{"message" => "unauthenticated"} = json_response(conn, 401)
+      assert %{"errors" => %{"detail" => "unauthenticated"}} = json_response(conn, 401)
     end
 
     test "renders errors when data is invalid", %{conn: conn, user: user, jwt: jwt} do
@@ -90,7 +90,7 @@ defmodule PhxAuthApiWeb.UserControllerTest do
     test "user can't delete other user", %{conn: conn, second_user: second_user, jwt: jwt} do
       conn = put_req_header(conn, "authorization", jwt)
       conn = put conn, user_path(conn, :delete, second_user), user: @update_attrs
-      assert %{"message" => "unauthenticated"} = json_response(conn, 401)
+      assert %{"errors" => %{"detail" => "unauthenticated"}} = json_response(conn, 401)
     end
   end
 
