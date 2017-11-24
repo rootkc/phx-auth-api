@@ -25,3 +25,9 @@ jobs:
       - run: mix deps.get
       - run: mix ecto.create
       - run: mix test
+
+    deployment:
+      staging:
+        branch: master
+        heroku:
+          appname: phx-auth-api
