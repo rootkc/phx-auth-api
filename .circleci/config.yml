@@ -25,6 +25,7 @@ jobs:
       - run: mix deps.get
       - run: mix ecto.create
       - run: mix test
+      - run: ssh -T git@github.com
       - deploy:
           name: Deploy Master to Heroku
           command: |
