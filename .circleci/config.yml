@@ -25,3 +25,13 @@ jobs:
       - run: mix deps.get
       - run: mix ecto.create
       - run: mix test
+      - run: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+        fingerprints:
+          - "76:7e:98:e0:83:24:be:9b:4f:91:39:ab:58:b8:80:09"
+      - deploy:
+        name: Deploy Master to Heroku
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            git push heroku master
+          fi
