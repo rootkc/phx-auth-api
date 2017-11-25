@@ -34,4 +34,5 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               git push heroku master
+              heroku run "POOL_SIZE=2 mix ecto.migrate"
             fi
