@@ -7,6 +7,6 @@ defmodule PhxAuthApiWeb.SessionView do
   end
 
   def render("session.json", %{session: session}) do
-    %{token: session}
+    %{token: session.token, id: session.id}
   end
 end

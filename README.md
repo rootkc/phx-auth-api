@@ -2,7 +2,7 @@
 
 ## Features
 
-This project implements [`Guardian`](https://github.com/ueberauth/guardian) for ```JWT``` authentication and [`Canary`](https://github.com/cpjk/canary) for user specific authorization. The ```JWT``` token controls access to a certain endpoint and then ```Canary``` is used to figure out if the resource from the ```JWT``` has access to that endpoint. This makes this setup very dynamic for many authentication purposes.
+This project implements [`Guardian`](https://github.com/ueberauth/guardian) for ```JWT``` authentication and [`Canary`](https://github.com/cpjk/canary) for user specific authorization. For hashing passwords in the database [`comeonin`](https://github.com/riverrun/comeonin) is used with the ```bcrypt``` algorithm. The ```JWT``` token controls access to a certain endpoint and then ```Canary``` is used to figure out if the resource from the ```JWT``` has access to that endpoint. This makes this setup very dynamic for many authentication purposes.
 
 [`CircleCI`](https://circleci.com/) test and deployment of master to [`Heroku`](https://heroku.com/)  is also implemented.
 
